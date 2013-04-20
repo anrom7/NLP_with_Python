@@ -1,0 +1,29 @@
+Python 2.7.3 (default, Apr 10 2012, 23:31:26) [MSC v.1500 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+Drozdovska Marta chapter6 - 7 ex.
+>>> import nltk
+>>> xmlPosts = nltk.corpus.nps_chat.xml_posts() # getting data from nps_chat
+>>> history = []
+>>> def dialogue_act_features(post,i,history): # defining feature extractor
+	features = {} 
+	for word in nltk.word_tokenize(post):
+		features['contains(%s)'% word.lower()] = True
+		if i !=0:
+			features["prev-class"]=history[i-1]
+
+		else:
+			features["prev-class"]= ""
+		return features
+
+	
+>>> featureSets = [] # defining feature classifier
+>>> for i, post in enumerate(xmlPosts): # enumerating xmlPosts
+	featureSets.append((dialogue_act_features(post.text,i,history), post.get('class')))
+	history.append(post.get('class')) # append data to history
+
+	
+>>> featureSetsSize = int(len(featureSets)*0.1) # defining feature sets size for testing
+>>> train_set, test_set = featureSets[featureSetsSize:], featureSets[:featureSetsSize]
+>>> classifier = nltk.NaiveBayesClassifier.train(train_set)
+>>> print nltk.classify.accuracy(classifier, test_set) # printing accuracy
+
