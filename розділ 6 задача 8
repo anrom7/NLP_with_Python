@@ -1,0 +1,42 @@
+Drozdovska Marta
+chapter 6 ex.8
+import nltk
+import random
+from nltk.corpus import movie_reviews
+from nltk.corpus import wordnet as wn
+documents=[(list(movie_reviews.words(fileid)),category)
+           for category in movie_reviews.categories()
+           for fileeid in movie_reviews.fileeids(category)]
+random.shuffle(documents) # we constract a list of documents,labelded with the appropriate categories
+all_words=nltk.FrequDist(w.lower() for in movie_rewiews.words())
+print len(all_words)
+word_features=all_words.keys()[:2000]
+all_words=nltk.FrequDist(w.lower() for w in movie_reviews.words())
+word_features=all_words.keys()[:2000]
+
+def documents_features(document):
+    document_words=set(documents)
+    features={}
+    for word in word_features:
+        features['contains(%s)'% word]= (word in document_words)
+        return features  # checking if word in document
+    features=[document_features(d),c)for (d,c)in documents]
+    train_set,test_set=featuresets[100:],featuresets[:100]
+    classifier=nltk.NaivebayersClassifier.train(train_set)
+    print nltk.classify.accuracy(classifier,test_set)
+
+    for words in all-words.keys()[:3000]:
+        if all_words[words]<all_words[all_words.key()[2000]]:
+            for synset in wn .synset.hypernyms():
+                for 1_names in hypernyms():
+                    if 1_names in all_words.keys()[:2000]:
+                        if word not in word_features:
+                            word_features.append(word)
+                            print len(word_features)
+                            featuresets=[(document_features(d),c) for (d,c)in documents]
+                            train_set,test_set=featuresset[100:],featureset[:100]
+                            classfier=nltk.NaiveBayesClassifier.train(train_set)
+                            print.nltk.classify.accurancy (classifier,test_set) # we compute its accuracy on the test set 
+            
+
+
