@@ -1,0 +1,40 @@
+Drozdovska Marta chapter 7 ex 3
+import nltk
+sentence=[("the","DT"),("little","jj"),("yellow","jj"),("dog","NN"),("barcked","VBD"),
+          ("at","IN"),("the,"DT"),("cat","NN")]
+                       
+ grammar="NP:{<DT>?<JJ>*<NN>}
+
+ cp=nltk.Regexparser(grammar)
+result=cp.parse(sentence)
+ print result  # using simple regular expression
+from nltk.corpus import conll2000
+
+print conll200.chunked_sents ('train.txt',chunk_types = ['NP']) [59]
+test_sents = conll2000.chunked_sents('test.txt', chunk_types = ['NP'])#  Only read NP chunks and simple evaluation
+postags=sorted(set(pos for sent in train_sents for (word,pos) in sent.leaves()))
+print cp.evaluate(test_sents)
+grammar=r"NP:{<[CDJNP].*>+}"
+cp=nltk.RegexpParser(grammar)
+print cp.evaluate(test_sents)
+grammar=r"NP:{<IN><DT>?<JJ>*<NN>}"
+cp=nltk.RegexParser(grammar)
+print cp.evaluate(test_sents)
+grammar=r"NP:{<NN>?<VB.*>+}"
+cp=nltk.RegexParser(grammar)
+
+print cp.evaluate(test_sents)
+grammar = r"NP:{<VB.*>?<NN.*>*<DT>*}"
+                       cp=nltk.RegexParser(grammar)
+                       print cp.evaluate(test_sents)
+
+
+
+evaluating created chunker on chunked sentences from conll2000 corpus
+                       test_sents = conll2000.chunked_sents('test.txt', chunk_types=['NP'])
+                       print new_chunk.evaluate(test_sents)
+                       
+                       
+
+                       
+          
