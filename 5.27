@@ -1,0 +1,19 @@
+Drozdovska Marta chapter5- ex 27
+
+import nltk
+from nltk.corpus import brown
+brownTaggedSents=brown.tagged_sents(categories='news')
+brownSents=brown.sents(categories='news')
+trainSents=brownTaggedSents[:8000]
+testSents=brownTaggedSents[8000:9000]
+t0=nltk.DefaultTagger('NN')
+t1=nltk.DefaultTagger(trainSents,backoff=t0)
+t2=nltk.bigramTagger(trainSents,backoff=t1)
+testTags=[tag for sent  in brown.sents(categories='news')
+           for(word,tag) in t2.tag(sent)]
+goldTags=[tag for(word,tag) in brown.tagged_words(categories='new')]
+sh= nltk.ConfusionMatrix(goldTags, testTags)
+mistakes=nltk.defaultdic(int)or  i in range(int(len(testTags))):
+    if testTags[i]!=goldTags[i]:
+        pair = (testTags [i], goldTags [i])
+        mistakes[pair]+=1
