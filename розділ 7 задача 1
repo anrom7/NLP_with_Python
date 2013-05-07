@@ -1,4 +1,0 @@
-Drozdovska Marta Chapter 7 ex 1
-In the scheme of IOB tags ,each token is tagged with one of three special chunk tags :I,O,B,tag B is
-very important becouse it marks the begnning of chunk .Subsequent tokens withun
-the chunk are tagged I.If we use only I and O, it will caused problem, so we can have an error
