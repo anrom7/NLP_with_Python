@@ -1,8 +1,0 @@
-Drozdovska Marta Chapter-8 ex 27
-This algorithm is a tringular matrix ,where we record the position of the words
-and it looks like:
-    |a11  a12  a13|
-    |0    a22  a23|
-    |0    0    a33|
-    The horisontal axis will denote the end position , the vertical axis will denote the start  position
-    
