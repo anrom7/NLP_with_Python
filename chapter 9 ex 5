@@ -1,0 +1,27 @@
+Drozdovska Marta variant 17 chapter 9 ex 5
+import nltk
+from nltk import load_parser
+tokens = 'ich folge den Katzen'.split() 
+cp = load_parser('grammars/book_grammars/german.fcfg') 
+for tree in cp.nbest_parse(tokens): 
+print tree
+tokens='du magst'.split()
+from nltk import load_parser
+cp = load_parser('grammars/book_grammars/german.fcfg') 
+for tree in cp.nbest_parse(tokens): 
+print tree
+tokens='er hilft mir'.split()
+from  nltk import load_parser
+cp = load_parser('grammars/book_grammars/german.fcfg') 
+for tree in cp.nbest_parse(tokens): 
+print tree
+tokens='wir arbeiten'.split()
+from nltk import load_parser
+cp = load_parser('grammars/book_grammars/german.fcfg') 
+for tree in cp.nbest_parse(tokens): 
+print tree
+tokens='ihr sieht'.split()
+  With the help of this program we can also work with different words in German.
+ we can check parson, number and gender.
+
+

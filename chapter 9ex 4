@@ -1,0 +1,22 @@
+Drozdovska Marta chapter 9 ex 4
+import nltk
+  tokens = 'Kim likes children'.split() >>>
+  from nltk import load_parser >>>
+  cp = load_parser('grammars/book_grammars/feat0.fcfg', trace=2)  >>>
+  trees = cp.nbest_parse(tokens)
+  print tree
+   VP[TENSE=?t, NUM=?n] -> V[SUBCAT=intrans, TENSE=?t, NUM=?n] # expansion productions
+   VP[TENSE=?t, NUM=?n] -> V[SUBCAT=trans, TENSE=?t, NUM=?n] NP
+   VP[TENSE=?t, NUM=?n] -> V[SUBCAT=clause, TENSE=?t, NUM=?n] SBar
+   lexical  production
+   IV[TENSE=pres,  NUM=sg] -> 'disappears' | 'walks'
+   TV[TENSE=pres, NUM=sg] -> 'sees' | 'likes'
+   IV[TENSE=pres,  NUM=pl] -> 'disappear' | 'walk'
+   TV[TENSE=pres, NUM=pl] -> 'see' | 'like'
+   IV[TENSE=past] -> 'disappeared' | 'walked'
+   TV[TENSE=past] -> 'saw' | 'liked'
+
+
+
+With the help of this program we can work with grammar. we can see the tense
+of the word plural or singural, or this word transitive or intransitive.
