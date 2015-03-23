@@ -1,0 +1,12 @@
+'''Tokenize and tag the sentence
+Barabakh Khrystyna APs-11'''
+
+import nltk
+sentence = 'They wind back the clock, while we chase after the wind'
+# do tokenize
+text = nltk.word_tokenize(sentence)
+# set tags
+nltk.pos_tag(text)
+'''There are two similar words, which belong to
+the different parts of speech, thats why they have
+different tags ('wind', 'VBP') and (wind', 'NN')'''
