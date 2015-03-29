@@ -1,0 +1,22 @@
+''' a. What happens to the tagger performance for the various model sizes when a
+backoff tagger is omitted?
+b. Consider the curve in Figure 5-4; suggest a good size for a lookup tagger that
+balances memory and performance. Can you come up with scenarios where it
+would be preferable to minimize memory usage, or to maximize performance
+with no regard for memory usage Barabakh Als-11'''
+def performance(cfd, wordlist):
+    lt = dict((word, cfd[word].max()) for word in wordlist)
+    baseline_tagger = nltk.UnigramTagger(model=lt) # without backoff, no information which analisator will ne next
+    return baseline_tagger.evaluate(brown.tagged_sents(categories='news'))
+def display():
+    import pylab
+    words_by_freq = list(nltk.FreqDist(brown.words(categories='news')))
+    cfd = nltk.ConditionalFreqDist(brown.tagged_words(categories='news'))
+    sizes = 2 ** pylab.arange(20)# size can be changed, but we cant get 100%, bigger size - more time for getting the result
+    perfs = [performance(cfd, words_by_freq[:size]) for size in sizes]
+    pylab.plot(sizes, perfs, '-bo')
+    pylab.title('Lookup Tagger Performance with Varying Model Size')
+    pylab.xlabel('Model Size')
+    pylab.ylabel('Performance')
+    pylab.show()
+>>> display() 
