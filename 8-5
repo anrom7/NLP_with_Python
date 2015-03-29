@@ -1,0 +1,14 @@
+'''Create a dictionary e, to represent a single lexical entry for some word of your
+choice. Define keys such as headword, part of speech, sense, and example and assign
+them suitable values , Barabakh ALs-11'''
+import nltk
+animals = nltk.defaultdict(list)
+# create function 
+def dic(headword, part_of_speech, sense, example):
+    animals[headword]=[part_of_speech, sense, example]
+
+# write down words into dictionary
+dic('cat','N','a small domesticated feline mammal','Mary likes her pet,her little cat')
+dic('monkey','N','any of numerous long-tailed primates excluding the prosimians','Monkeys range in size from the Pygmy Marmoset, at 140 to 160 millimetres (5–6 in) long (plus tail) and 120 to 140 grams (4–5 oz) in weight')
+# look for definition of word 'cat'
+animals['cat']
