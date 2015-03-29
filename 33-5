@@ -1,0 +1,37 @@
+'''Write code that builds a dictionary of dictionaries of sets. Use it to store the set
+of POS tags that can follow a given word having a given POS tag, i.e., wordi
+ → tagi → tagi+1 Barabakh ALs-11'''
+import nltk
+from nltk.corpus import brown
+# do bigrams
+tagged_w = brown.tagged_words()
+bigrams_brown = nltk.bigrams(tagged_w)
+for i in bigrams_brown:
+    print i
+
+for i,j in bigrams_brown:
+    print i,j [1]
+
+list()
+#choose second element
+for i,j in bigrmas_brown:
+    list1.append(i,j[1])
+
+list1 [:15]
+# do frequency analysis
+cfd = nltk.ConditionalFreqDist(list1)
+cfd.keys()
+# create dictionary
+def findme (word, tag):
+	w=dict()
+	a=nltk.defaultdict(dict)
+	c=[]
+	for i in range (len(br)-1):
+		d=br[i]
+		e=br[i+1]
+		if d[0]==word and d[1]==tag:
+			c+=[e[1]]
+	w[tag]=set(c)
+	a[word]=w
+	return a
+    
