@@ -5,8 +5,8 @@
 #and run it on some new text. Experiment with different settings for the affix length
 #and the minimum word length. Discuss your findings.
 import nltk  
-from nltk.corpus import brown #import Brown corpus to work with it
->>> help (nltk.AffixTagger) #information about AffixTagger
+from nltk.corpus import brown #імпортуємо Браунівський корпус
+>>> help (nltk.AffixTagger) #викликаємо файл допомоги про AffixTagger
 Help on class AffixTagger in module nltk.tag.sequential:
 
 class AffixTagger(ContextTagger, yaml.YAMLObject)
@@ -129,9 +129,9 @@ class AffixTagger(ContextTagger, yaml.YAMLObject)
  |  
  |  yaml_loader = <class 'yaml.loader.Loader'>
 
-training=brown.tagged_sents(categories='news') #variable which  shows tag usage in marked text
+training=brown.tagged_sents(categories='news') #Змінна, яка запам'ятовує використання тегів у вже промаркованому тексті
 sent=('Stephane Hessel the former French Resistance fighter whose 2010 manifesto Time for Outrage inspired social protesters in Europe dies aged 95').split() #Речення, яке будемо використовувати
-for i in range(4): #usage of AffixTagger with different meanings affix_length та min_stem_length
+for i in range(4): #Використання AffixTagger з різними значеннями affix_length та min_stem_length
     affix_tagger=nltk.AffixTagger(training,affix_length=int(i),min_stem_length=int(i))
     affix_tagger.tag(sent)
     print affix_tagger.evaluate(brown.tagged_sents(categories='news'))
