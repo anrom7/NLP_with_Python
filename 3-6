@@ -1,0 +1,10 @@
+''' The Senseval 2 Corpus contains data intended to train word-sense disambigua-
+tion classifiers. It contains data for four words:  hard,  interest,  line, and  serve.
+Choose one of these four words, and load the corresponding data, Barabakh Khrystyna APLs-11'''
+import nltk
+from nltk.corpus import senseval
+instances = senseval.instances('interest.pos')# choose one of four words
+size = int(len(instances)*0.1)
+train_set, test_set = instances[size:], instances[:size]
+print train_set
+print test_set
