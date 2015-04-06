@@ -1,0 +1,32 @@
+'''The dialogue act classifier assigns labels to individual posts, without considering
+the context in which the post is found. However, dialogue acts are highly depend-
+ent on context, and some sequences of dialogue act are much more likely than
+others. For example, a ynQuestion dialogue act is much more likely to be answered
+by a yanswer than by a greeting. Make use of this fact to build a consecutive clas-
+sifier for labeling dialogue acts. Be sure to consider what features might be useful.
+See the code for the consecutive classifier for part-of-speech tags in Example 6-5
+to get some ideas, Barabakh  Khrystyna''''
++import nltk
++xmlPosts = nltk.corpus.nps_chat.xml_posts() # get data from nps_chat
++history = []
++def dialogue_act_features(post,i,history): # define feature extractor
++	features = {} 
++	for word in nltk.word_tokenize(post):
++		features['contains(%s)'% word.lower()] = True
++		if i !=0:
++			features["prev-class"]=history[i-1]
++
++		else:
++			features["prev-class"]= ""
++		return features
++
++	
++featureSets = [] # defining feature classifier
++for i, post in enumerate(xmlPosts): # enumerating xmlPosts
++	featureSets.append((dialogue_act_features(post.text,i,history), post.get('class')))
++	history.append(post.get('class')) # append data to history
++
++featureSetsSize = int(len(featureSets)*0.1) # defining feature sets size for testing
++train_set, test_set = featureSets[featureSetsSize:], featureSets[:featureSetsSize]
++classifier = nltk.NaiveBayesClassifier.train(train_set)
++print nltk.classify.accuracy(classifier, test_set) # printing accuracy
