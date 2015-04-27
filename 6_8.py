@@ -1,6 +1,6 @@
 #Спробую врахувати вплив гіпернімів.
 #Варіант 1.
-#Згідно приладу з підручника:
+#Згідно прикладу з підручника:
 import nltk
 import random
 from nltk.corpus import movie_reviews
@@ -40,7 +40,7 @@ classifier = nltk.NaiveBayesClassifier.train(train_set)
 print (nltk.classify.accuracy(classifier, test_set))
 
 #Варіант 2.
-#Згідно приладу з підручника:
+#Згідно прикладу з підручника:
 import nltk
 import random
 from nltk.corpus import movie_reviews

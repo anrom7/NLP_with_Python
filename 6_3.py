@@ -17,7 +17,6 @@ for inst in instances:
  b=dict(zx)
  a.update(b)
  features.append((a,' '.join(inst.senses)))
-# далі вже все просто
 # встановлюємо розмір даних для тестуваня (10%) 
 size = int(len(features) * 0.1)
 # ділимо всі дані на дві частини - для тренування і для тестування
