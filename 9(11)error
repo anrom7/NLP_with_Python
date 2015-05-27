@@ -1,0 +1,10 @@
+#chapter 9, Ex. 11
+#by Ivanna Rurych
+#task:  Extend the German grammar in  Example 9-4so that it can handle so-called verbsecond structures like the following: (63) Heute sieht der Hund die Katze.
+import nltk
+from nltk import load_parser
+tokens = 'Heute sieht der Hund die Katze'.split() #Sentence, where the verb is on
+cp = load_parser('grammars/book_grammars/german.fcfg') #Modified grammar
+                                                            
+for tree in cp.nbest_parse(tokens):
+    print tree
