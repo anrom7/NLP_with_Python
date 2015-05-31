@@ -1,0 +1,15 @@
+""" Barabakh Khrystyna.Write a recursive function to traverse a tree and return the depth of the tree, such
+that a tree with a single node would have depth zero. (Hint: the depth of a subtree
+is the maximum depth of its children, plus one.) Chapter 8(6)"""
+ t = nltk.Tree('(S (NP Alice) (VP chased (NP the rabbit)))')
+def traverse(t):
+	try:
+		t.node
+	except AttributeError:
+		print t,
+	else:
+		print '(', t.node,
+		for child in t:
+			traverse(child)
+		print ')',
+t.height()
