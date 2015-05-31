@@ -1,0 +1,8 @@
+""" Barabakh Khrystyna. Consider the sentence Kim arrived or Dana left and everyone cheered. Write down
+the parenthesized forms to show the relative scope of and and or. Generate tree
+structures corresponding to both of these interpretations. Chapter 8(3)"""
+sent= ['Kim', 'arrived', 'or', 'Dana', 'left', 'and', 'everyine', 'cheered']
+parser = nltk.ChartParser(groucho_grammar)
+trees = parser.nbest_parse(sent)
+for tree in trees:
+  print tree
