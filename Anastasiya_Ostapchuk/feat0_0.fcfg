@@ -1,0 +1,36 @@
+## Natural Language Toolkit: feat0.fcfg
+##
+## First example of a feature-based grammar for English, illustrating
+## value-sharing of NUM and TENSE features.
+## Used in Feature-Based Grammars chapter.
+## 
+## Author: Ewan Klein <ewan@inf.ed.ac.uk> 
+## URL: <http://nltk.sourceforge.net>
+## For license information, see LICENSE.TXT
+##
+## $Id: feat0.cfg 4674 2007-06-14 08:55:32Z ehk $
+
+% start S
+# ###################
+# Grammar Productions
+# ###################
+
+# S expansion productions
+S-> NP VP[TENSE=?t]
+
+# NP expansion productions
+NP ->DetN
+
+# VP expansion productions
+VP[TENSE=?t] -> IV[TENSE=?t] Det N P N
+VP[TENSE=?t] -> IV[TENSE=?t] N P Det N 
+
+# ###################
+# Lexical Productions
+# ###################
+
+Det -> 'The'| 'the'
+N -> ' farmer ' | ' cart ' | 'sand' 
+IV[TENSE=past] -> 'loaded' | 'filled'
+P-> ' into ' | 'with '
+
