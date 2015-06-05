@@ -1,0 +1,10 @@
+import nltk
+help(nltk.tag.brill.demo)
+nltk.tag.brill.demo(num_sents=500, max_rules=100, min_score=3, error_output='errors.out', rule_output='rules.yaml', randomize=False, train=0.3, trace=3)
+nltk.tag.brill.demo(num_sents=1000, max_rules=200, min_score=3, error_output='errors.out', rule_output='rules.yaml', randomize=False, train=0.3, trace=3)
+
+# I changed the number of sentences (num_sents) and maximum number of rule instances to create (max_rules), first 500 sentences and 100 rules, then with 1000 sentences and 200 rules.
+# The greater quantity of training sentences is taken, the more accurate results can be observed ( an accuracy has improved from  0.714776 to 0.742791).
+
+nltk.tag.brill.demo(num_sents=500, max_rules=100, min_score=3, error_output='errors.out', rule_output='rules.yaml', randomize=False, train=0.6, trace=3)
+nltk.tag.brill.demo(num_sents=1000, max_rules=200, min_score=3, error_output='errors.out', rule_output='rules.yaml', randomize=False, train=0.6, trace=3)
